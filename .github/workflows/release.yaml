@@ -5,10 +5,10 @@ on:
     tags:
       - '*'
 env:
-  REGISTRY: quay.io/lwpk110
   CI_SCRIPT_DEBUG: true
   CONTAINER_TOOL_PROVIDER: buildah
   PLATFORM_VERSION: ${{ github.ref_name }}
+  REGISTRY: quay.io/lwpk110
 
 # use cosign to sign with gh login, so we need pass the oidc token to the action
 permissions:

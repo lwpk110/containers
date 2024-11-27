@@ -20,6 +20,10 @@ inputs:
     description: 'The registry to login to'
     required: false
     default: 'quay.io'
+  platform_version:
+    description: 'The platform version'
+    required: false
+    default: '0.0.0-dev'
   builder_name:
     description: 'The name of the builder'
     required: false
