@@ -128,7 +128,6 @@ Options:
         product_version=$1
         ;;
       --sign )
-        shift
         sign=true
         ;;
       -h | --help )
