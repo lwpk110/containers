@@ -40,7 +40,6 @@ runs:
       run: |
         set -ex
 
-        echo "-----------------------------------------"
         echo "platform: $PLATFORM_VERSION"
 
         for tag in $tags; do
