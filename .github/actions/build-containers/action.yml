@@ -8,7 +8,7 @@ inputs:
   tags:
     description: |
       The tags to build, the name sperated by space. e.g. "name1:version1 name1:version2 name2:version1"
-      If build a tag without version, just use the name. we will build all versions of the container by 
+      If build a tag without version, just use the name. we will build all versions of the container by
       container metadata.json.
     required: true
   push:
@@ -34,6 +34,11 @@ runs:
         tags: ${{ inputs.tags }}
       run: |
         set -ex
+
+        echo "-----------------------------------------"
+        echo "platform:"
+        echo $PLATFORM_VERSION
+
         for tag in $tags; do
           args=(".scripts/build.sh" "product")
 

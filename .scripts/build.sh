@@ -11,7 +11,7 @@ set -e
 . .scripts/lib.sh
 
 # if CI_SCRIPT_DEBUG is set, then enable debug mode
-if [ -n "$CI_SCRIPT_DEBUG" ]; then
+if [ "$CI_SCRIPT_DEBUG" = "true" ]; then
   set -x
 fi
 

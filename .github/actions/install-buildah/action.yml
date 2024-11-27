@@ -55,6 +55,7 @@ runs:
           -e CONTAINER_TOOL_PROVIDER=buildah \
           -e ACTIONS_ID_TOKEN_REQUEST_TOKEN=$ACTIONS_ID_TOKEN_REQUEST_TOKEN \
           -e ACTIONS_ID_TOKEN_REQUEST_URL=$ACTIONS_ID_TOKEN_REQUEST_URL \
+          -e REGISTRY=$REGISTRY \
           -e CI_SCRIPT_DEBUG=true \
           -v $(pwd):/app \
           -d \
@@ -71,7 +72,7 @@ runs:
           set -ex
 
           # install required tools
-          dnf install -y jq 
+          dnf install -y jq
           curl -sSfL https://github.com/sigstore/cosign/releases/latest/download/cosign-linux-amd64 -o /usr/local/bin/cosign
           chmod +x /usr/local/bin/cosign
           cosign version
