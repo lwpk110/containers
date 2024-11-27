@@ -1,7 +1,7 @@
 name: Resuable Build and Publish
 
 env:
-  REGISTRY: quay.io/zncdatadev
+  REGISTRY: quay.io/lwpk110
   CI_SCRIPT_DEBUG: true
   CONTAINER_TOOL_PROVIDER: buildah
 
@@ -16,7 +16,7 @@ on:
       tags:
         description: |
           The tags to build, the name sperated by space. e.g. "name1:version1 name1:version2 name2:version1"
-          If build a tag without version, just use the name. we will build all versions of the container by 
+          If build a tag without version, just use the name. we will build all versions of the container by
           container metadata.json.
         required: true
         type: string
@@ -37,7 +37,7 @@ on:
         required: false
         type: string
         default: 'latest'
-    
+
 
 jobs:
   triage:
