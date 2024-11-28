@@ -46,7 +46,7 @@ runs:
       shell: bash
       env:
         BUILDER_NAME: ${{ inputs.builder_name }}
-        REGISTRY: ${{ inputs.registry }}
+        REGISTRY: ${{ env.REGISTRY }}
         BUILDAH_VERSION: ${{ inputs.buildah_version }}
         USERNAME: ${{ inputs.username }}
         PASSWORD: ${{ inputs.password }}

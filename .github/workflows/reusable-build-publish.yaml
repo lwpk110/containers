@@ -3,12 +3,20 @@ name: Resuable Build and Publish
 env:
   CI_SCRIPT_DEBUG: true
   CONTAINER_TOOL_PROVIDER: buildah
-  # REGISTRY: quay.io/lwpk110
-  # PLATFORM_VERSION: ${{ github.ref_name }}
 
 on:
   workflow_call:
     inputs:
+      registry:
+        description: 'The registry to login to'
+        required: false
+        type: string
+        default: 'quay.io/zncdatadev'
+      platform_version:
+        description: 'The platform version'
+        required: false
+        type: string
+        default: '0.0.0-dev'
       builder_name:
         type: string
         description: 'The name of the builder'
@@ -62,7 +70,7 @@ jobs:
           buildah_version: ${{ inputs.buildah_version }}
           builder_name: ${{ inputs.builder_name }}
           registry: ${{ env.REGISTRY }}
-          platform_version: ${{ env.PLATFORM_VERSION }}
+          platform_version: ${{ inputs.platform_version }}
       - name: Build Images
         uses: ./.github/actions/build-containers
         with:

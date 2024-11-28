@@ -103,6 +103,8 @@ jobs:
       tags: ${{ matrix.container }}
       push: ${{fromJson(needs.prepare.outputs.push_container)}}
       sign: ${{fromJson(needs.prepare.outputs.sign_container)}}
+      platform_version: ${{ github.ref_name }}
+
     secrets: inherit  # pass all secrets to the action
     needs: prepare
     if: ${{fromJson(needs.prepare.outputs.tools_containers)}}
