@@ -65,6 +65,6 @@ runs:
             args+=("--sign")
           fi
 
-          docker exec -w /app $BUILDER_NAME "${args[@]}"
+          docker exec -e PLATFORM_VERSION=$PLATFORM_VERSION -w /app $BUILDER_NAME "${args[@]}"
 
         done
