@@ -70,7 +70,6 @@ jobs:
           buildah_version: ${{ inputs.buildah_version }}
           builder_name: ${{ inputs.builder_name }}
           registry: ${{ inputs.registry }}
-          platform_version: ${{ inputs.platform_version }}
       - name: Build Images
         uses: ./.github/actions/build-containers
         with:
@@ -78,3 +77,4 @@ jobs:
           sign: ${{ inputs.sign }}
           push: ${{ inputs.push }}
           builder_name: ${{ inputs.builder_name }}
+          platform_version: ${{ inputs.platform_version }}
