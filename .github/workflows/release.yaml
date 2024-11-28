@@ -7,8 +7,6 @@ on:
 env:
   CI_SCRIPT_DEBUG: true
   CONTAINER_TOOL_PROVIDER: buildah
-  PLATFORM_VERSION: ${{ github.ref_name }}
-  REGISTRY: quay.io/lwpk110
 
 # use cosign to sign with gh login, so we need pass the oidc token to the action
 permissions:
@@ -21,7 +19,7 @@ jobs:
     with:
       sign: true
       push: true
-      registry: quay.io/lwpk110
+      registry: quay.io/zncdatadev
       platform_version: ${{ github.ref_name}}
 
   publish_rootfs:
