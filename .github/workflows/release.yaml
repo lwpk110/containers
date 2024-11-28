@@ -104,7 +104,7 @@ jobs:
       push: ${{fromJson(needs.prepare.outputs.push_container)}}
       sign: ${{fromJson(needs.prepare.outputs.sign_container)}}
       platform_version: ${{ github.ref_name }}
-
+      registry: quay.io/lwpk110
     secrets: inherit  # pass all secrets to the action
     needs: prepare
     if: ${{fromJson(needs.prepare.outputs.tools_containers)}}

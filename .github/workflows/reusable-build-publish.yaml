@@ -69,7 +69,7 @@ jobs:
           password: ${{ secrets.QUAY_PASSWORD }}
           buildah_version: ${{ inputs.buildah_version }}
           builder_name: ${{ inputs.builder_name }}
-          registry: ${{ env.REGISTRY }}
+          registry: ${{ inputs.registry }}
           platform_version: ${{ inputs.platform_version }}
       - name: Build Images
         uses: ./.github/actions/build-containers

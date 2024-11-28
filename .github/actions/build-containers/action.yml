@@ -21,7 +21,11 @@ inputs:
       Sign the image after build.
     required: false
     default: 'false'
-
+  platform_version:
+    description: |
+      The platform version.
+    required: false
+    default: '0.0.0-dev'
 runs:
   using: 'composite'
   steps:
@@ -32,12 +36,12 @@ runs:
         PUSH: ${{ inputs.push }}
         SIGN: ${{ inputs.sign }}
         tags: ${{ inputs.tags }}
+        PLATFORM_VERSION: ${{ inputs.platform_version }}
       run: |
         set -ex
 
         echo "-----------------------------------------"
-        echo "platform:"
-        echo $PLATFORM_VERSION
+        echo "platform: $PLATFORM_VERSION"
 
         for tag in $tags; do
           args=(".scripts/build.sh" "product")
