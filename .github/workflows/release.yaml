@@ -30,8 +30,8 @@ jobs:
       tags: ${{ matrix.container }}
       push: ${{fromjson(needs.prepare.outputs.push_container)}}
       sign: ${{fromjson(needs.prepare.outputs.sign_container)}}
-      platform_version: ${{fromJson(needs.prepare.outputs.platform_version)}}
-      registry: ${{fromJson(needs.prepare.outputs.registry)}}
+      platform_version: ${{needs.prepare.outputs.platform_version}}
+      registry: ${{needs.prepare.outputs.registry}}
       buildah_version: latest
     secrets: inherit  # pass all secrets to the action
     needs: prepare
@@ -48,8 +48,8 @@ jobs:
       tags: ${{ matrix.container }}
       push: ${{fromjson(needs.prepare.outputs.push_container)}}
       sign: ${{fromjson(needs.prepare.outputs.sign_container)}}
-      platform_version: ${{fromJson(needs.prepare.outputs.platform_version)}}
-      registry: ${{fromJson(needs.prepare.outputs.registry)}}
+      platform_version: ${{needs.prepare.outputs.platform_version}}
+      registry: ${{needs.prepare.outputs.registry}}
     secrets: inherit  # pass all secrets to the action
     needs: prepare
     if: ${{fromJson(needs.prepare.outputs.infra_containers)}}
@@ -65,8 +65,8 @@ jobs:
       tags: ${{ matrix.container }}
       push: ${{fromjson(needs.prepare.outputs.push_container)}}
       sign: ${{fromjson(needs.prepare.outputs.sign_container)}}
-      platform_version: ${{fromJson(needs.prepare.outputs.platform_version)}}
-      registry: ${{fromJson(needs.prepare.outputs.registry)}}
+      platform_version: ${{needs.prepare.outputs.platform_version}}
+      registry: ${{needs.prepare.outputs.registry}}
     secrets: inherit  # pass all secrets to the action
     needs: prepare
     if: ${{fromJson(needs.prepare.outputs.env_containers)}}
@@ -82,8 +82,8 @@ jobs:
       tags: ${{ matrix.container }}
       push: ${{fromjson(needs.prepare.outputs.push_container)}}
       sign: ${{fromjson(needs.prepare.outputs.sign_container)}}
-      platform_version: ${{fromJson(needs.prepare.outputs.platform_version)}}
-      registry: ${{fromJson(needs.prepare.outputs.registry)}}
+      platform_version: ${{needs.prepare.outputs.platform_version}}
+      registry: ${{needs.prepare.outputs.registry}}
     secrets: inherit  # pass all secrets to the action
     needs: prepare
     if: ${{fromJson(needs.prepare.outputs.devel_containers)}}
@@ -99,8 +99,8 @@ jobs:
       tags: ${{ matrix.container }}
       push: ${{fromJson(needs.prepare.outputs.push_container)}}
       sign: ${{fromJson(needs.prepare.outputs.sign_container)}}
-      platform_version: ${{fromJson(needs.prepare.outputs.platform_version)}}
-      registry: ${{fromJson(needs.prepare.outputs.registry)}}
+      platform_version: ${{needs.prepare.outputs.platform_version}}
+      registry: ${{needs.prepare.outputs.registry}}
     secrets: inherit  # pass all secrets to the action
     needs: prepare
     if: ${{fromJson(needs.prepare.outputs.app_containers)}}
@@ -115,8 +115,8 @@ jobs:
       tags: ${{ matrix.container }}
       push: ${{fromJson(needs.prepare.outputs.push_container)}}
       sign: ${{fromJson(needs.prepare.outputs.sign_container)}}
-      platform_version: ${{fromJson(needs.prepare.outputs.platform_version)}}
-      registry: ${{fromJson(needs.prepare.outputs.registry)}}
+      platform_version: ${{needs.prepare.outputs.platform_version}}
+      registry: ${{needs.prepare.outputs.registry}}
     secrets: inherit  # pass all secrets to the action
     needs: prepare
     if: ${{fromJson(needs.prepare.outputs.tools_containers)}}
