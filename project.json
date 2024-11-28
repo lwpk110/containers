@@ -1,5 +1,45 @@
 {
   "containers": {
+    "rootfs": {
+      "parallel": true,
+      "paths": [
+        "kubedoop-base"
+      ]
+    },
+    "infra": {
+      "parallel": true,
+      "paths": [
+        "vector"
+      ]
+    },
+    "env": {
+      "parallel": true,
+      "paths": [
+        "java"
+      ]
+    },
+    "devel": {
+      "parallel": true,
+      "paths": [
+        "java-devel",
+        "go-devel"
+      ]
+    },
+    "app": {
+      "parallel": true,
+      "paths": [
+        "airflow",
+        "hadoop",
+        "hive",
+        "hbase",
+        "spark-k8s",
+        "kafka",
+        "superset",
+        "trino",
+        "dolphinscheduler",
+        "zookeeper"
+      ]
+    },
     "tools": {
       "parallel": true,
       "paths": [

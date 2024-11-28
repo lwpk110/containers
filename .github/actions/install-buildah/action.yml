@@ -50,7 +50,7 @@ runs:
         BUILDAH_VERSION: ${{ inputs.buildah_version }}
         USERNAME: ${{ inputs.username }}
         PASSWORD: ${{ inputs.password }}
-        PLATFORM_VERSION: ${{ env.PLATFORM_VERSION }}
+        PLATFORM_VERSION: ${{ inputs.platform_version }}
       run: |
         set -ex
         # start buildah in docker container
@@ -66,8 +66,6 @@ runs:
           -d \
           quay.io/buildah/stable:$BUILDAH_VERSION \
             tail -f /dev/null
-
-        echo "platform_version=: $PLATFORM_VERSION, ${PLATFORM_VERSION}, ${{ env.PLATFORM_VERSION }}"
 
         # login to quay.io
         if [ -n "$USERNAME" ] && [ -n "$PASSWORD" ]; then

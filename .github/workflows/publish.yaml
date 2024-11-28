@@ -1,4 +1,4 @@
-name: publish
+name: Publish
 
 on:
   push:
@@ -45,7 +45,7 @@ jobs:
     strategy:
       matrix:
         container: ${{fromjson(needs.prepare.outputs.infra_containers)}}
-    
+
 
   publish_env:
     name: test env
@@ -60,7 +60,7 @@ jobs:
     strategy:
       matrix:
         container: ${{fromjson(needs.prepare.outputs.env_containers)}}
-    
+
 
   publish_devel:
     name: test devel
@@ -75,7 +75,7 @@ jobs:
     strategy:
       matrix:
         container: ${{fromjson(needs.prepare.outputs.devel_containers)}}
-    
+
 
   publish_app:
     name: test app
@@ -90,7 +90,7 @@ jobs:
     strategy:
       matrix:
         container: ${{fromJson(needs.prepare.outputs.app_containers)}}
-    
+
   publish_tools:
     name: Test Tools
     uses: ./.github/workflows/reusable-build-publish.yaml
@@ -104,4 +104,3 @@ jobs:
     strategy:
       matrix:
         container: ${{fromJson(needs.prepare.outputs.tools_containers)}}
-    
